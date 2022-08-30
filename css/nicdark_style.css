@@ -229,7 +229,9 @@ select.big { font-size: 17px; padding: 15px 20px; box-sizing:border-box; }
     padding:0px;
 }
 
-
+.faded{
+    opacity: 0.65;
+}
 
 
 /*********************************************ONLY FOR DEMO*************************************************************/

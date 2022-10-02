@@ -29,6 +29,14 @@ SOME BASIC CLASSES
     9-parallax section
 
 
+
+
+ */
+
+
+.tp-bgimg.defaultimg{
+    background-size: cover !important;
+}
 /* 1- START NICDARK FRAMEWORK*/
 body{ margin:0px; padding:0px; overflow-x:hidden; background-color: #ccc; }
 body.nicdark_boxed_img{ background-image: url(../img/slide/img1.jpg) !important; background-size: cover; background-attachment: fixed; }

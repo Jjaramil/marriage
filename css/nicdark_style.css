@@ -65,10 +65,13 @@ body.nicdark_boxed_pattern{ background-image: url(../img/patterns/img1.jpg) !imp
 
 
 /* 5 - START NICDARKGRID*/
-.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12{ padding:10px; float:left; display:inline; box-sizing:border-box; -moz-box-sizing:border-box; }
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12, .grid_full{ padding:10px; float:left; display:inline; box-sizing:border-box; -moz-box-sizing:border-box; }
 .grid.nomargin{ margin: 0px; padding: 10px; }
+.grids.nomargin{ margin: 0px; padding: 10px; }
 .grid.percentage{ margin: 0px; padding: 0px; }
+.grids.percentage{ margin: 0px; padding: 0px; }
 .grid_12.percentage {width:100%;}
+.grid_full.percentage {width:100%;}
 .grid_6.percentage {width:50%;}
 .grid_4.percentage {width:33.33%;}
 .grid_3.percentage {width:25%;}
@@ -88,6 +91,7 @@ body.nicdark_boxed_pattern{ background-image: url(../img/patterns/img1.jpg) !imp
 .grid_10 {width:1000px;}
 .grid_11 {width:1100px;}
 .grid_12 {width:1200px;}
+.grid_full {width:1200px;}
 /*END NICDARKGRID*/
 
 

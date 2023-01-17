@@ -79,7 +79,10 @@ JQUERY UI
 
 /***********************SOME CLASSES THAT YOU CAN APPLY TO ALL ELEMENTS FOR DECIDE THE GRAPHIC*************************************/
 
-
+@font-face {
+    font-family: 'sisterhood';
+    src: url('../font/sisterhood/Sisterhood.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+} 
 
 /* 1 - START NICDARKBG*/
 .nicdark_bg_transparent{ background-color: transparent; }
@@ -856,8 +859,8 @@ z-index: 2;
 .nicdark_slide1 > ul { position: absolute; z-index: 0;}
 #nicdark_slide2 > ul li { z-index: 0 !important;}
 
-.tp-caption.nicdarknamebigwhite,.nicdarknamebigwhite{font-size:100px;line-height:80px;font-family:"Great Vibes";color:#ffffff;text-decoration:none;background-color:transparent;border-width:0px;border-color:rgb(164,193,193);border-style:none}
-.tp-caption.nicdarkdateslide,.nicdarkdateslide{font-size:30px;font-weight:bolder;font-family:"Cinzel Decorative",cursive;color:rgb(255,255,255);text-decoration:none;background-color:transparent;border-width:0px;border-color:rgb(145,141,156);border-style:none}
+.tp-caption.nicdarknamebigwhite,.nicdarknamebigwhite{font-size:100px;line-height:80px;font-family:"sisterhood";color:#ffffff;text-decoration:none;background-color:transparent;border-width:0px;border-color:rgb(164,193,193);border-style:none}
+.tp-caption.nicdarkdateslide,.nicdarkdateslide{font-size:30px;font-weight:bolder;font-family:"Cinzel Decorative";color:rgb(255,255,255);text-decoration:none;background-color:transparent;border-width:0px;border-color:rgb(145,141,156);border-style:none}
 
 
 /***************************************************JQUERY UI***********************************************************************/

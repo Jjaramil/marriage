@@ -132,7 +132,7 @@ h1.subtitle,h2.subtitle,h3.subtitle,h4.subtitle,h5.subtitle,h6.subtitle,input[ty
 h1.signature,h2.signature,h3.signature,h4.signature,h5.signature,h6.signature, span.signature{ font-family: 'Great Vibes', cursive; }
 /*color*/
 p.white,h1.white,h2.white,h3.white,h4.white,h5.white,h6.white,a.white,i.white,span.white, input[type="text"].white, textarea.white, input[type="submit"].white, select.white{ color:#ffffff; }
-p.grey,h1.grey,h2.grey,h3.grey,h4.grey,h5.grey,h6.grey,a.grey,i.grey,span.grey, input[type="text"].grey, textarea.grey, input[type="submit"].grey, select.grey, pre.grey{ color:#c9c9c9; }
+p.grey,h1.grey,h2.grey,h3.grey,h4.grey,h5.grey,h6.grey,a.grey,i.grey,span.grey, input[type="text"].grey, textarea.grey, input[type="submit"].grey, select.grey, pre.grey{ color:#8d8c8c; }
 p.greydark,h1.greydark,h2.greydark,h3.greydark,h4.greydark,h5.greydark,h6.greydark,a.greydark,i.greydark,span.greydark, input[type="text"].greydark, textarea.greydark, input[type="submit"].greydark, select.greydark{ color:#6c6975; }
 p.greydark2,h1.greydark2,h2.greydark2,h3.greydark2,h4.greydark2,h5.greydark2,h6.greydark2,a.greydark2,i.greydark2,span.greydark2, input[type="text"].greydark2, textarea.greydark2, input[type="submit"].greydark2, select.greydark2{ color:#353b3d; }
 p.green,h1.green,h2.green,h3.green,h4.green,h5.green,h6.green,a.green,i.green,span.green, input[type="text"].green, textarea.green, input[type="submit"].green, select.green{ color:#c2e4cb; }
@@ -213,6 +213,97 @@ select.big { font-size: 17px; padding: 15px 20px; box-sizing:border-box; }
 .nicdark_facebook { background-color:#5977b8; box-shadow:0px 4px 0px 0px #4c67a1;  }
 /*END CUSTOM CLASS TO AVOID INLINE CSS*/
 
+
+.company-hide{
+    display: none;
+}
+.company-show{
+    display: true;
+}
+  .rating-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0.4rem 0.8rem;
+    width: 100%;
+  }
+
+  .rating-text p {
+    color: rgba(0, 0, 16, 0.8);
+    font-size: 1.3rem;
+    padding: 0.3rem;
+  }
+  
+  .rating {
+    background-color: #585858;
+    padding: 0.4rem 0.4rem 0.1rem 0.4rem;
+    border-radius: 2.2rem;
+  }
+  
+  svg {
+    fill: rgb(242, 242, 242);
+    height: 3.6rem;
+    width: 3.6rem;
+    margin: 0.2rem;
+  }
+  
+  .rating-form-2 svg {
+    height: 2rem;
+    width: 2rem;
+    margin: 0.5rem;
+  }
+  
+  #radios label {
+    position: relative;
+  }
+  
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+  }
+  
+  input[type="radio"] + svg {
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  
+  input + svg {
+    cursor: pointer;
+  }
+  
+  input[class="super-happy"]:hover + svg,
+  input[class="super-happy"]:checked + svg,
+  input[class="super-happy"]:focus + svg {
+    fill: rgb(0, 109, 217);
+  }
+  
+  input[class="happy"]:hover + svg,
+  input[class="happy"]:checked + svg,
+  input[class="happy"]:focus + svg {
+    fill: rgb(0, 204, 79);
+  }
+  
+  input[class="neutral"]:hover + svg,
+  input[class="neutral"]:checked + svg,
+  input[class="neutral"]:focus + svg {
+    fill: rgb(232, 214, 0);
+  }
+  
+  input[class="sad"]:hover + svg,
+  input[class="sad"]:checked + svg,
+  input[class="sad"]:focus + svg {
+    fill: rgb(229, 132, 0);
+  }
+  
+  input[class="super-sad"]:hover + svg,
+  input[class="super-sad"]:checked + svg,
+  input[class="super-sad"]:focus + svg {
+    fill: rgb(239, 42, 16);
+  }
+  
 
 
 /*GMAPS*/

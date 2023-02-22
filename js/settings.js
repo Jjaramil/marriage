@@ -22,12 +22,17 @@
 		});
 
 		$( '.nicdark_simulate_click' ).trigger( "click" );
+
+		$('#company').click( function() {
+			jQuery('.company-hide').addClass('company-show');
+			jQuery('.company-show').removeClass('company-hide');
+		});
 	
 	});
 	///////////
 
 
-
+	
 
 	//inview
 	var windowWidth = $(window).width(); 

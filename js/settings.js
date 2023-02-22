@@ -33,7 +33,7 @@
 			}
 		});
 
-		$('#save').click( function() {
+		$('#save').click( async function() {
 			let email = jQuery('#email').val();
 			let name = jQuery('#name').val();
 			let lastName = jQuery('#lastName').val();
@@ -45,6 +45,7 @@
 			let name_comp = jQuery('#name-comp').val();
 			let phone_comp = jQuery('#phone-comp').val();
 			let diet_comp = jQuery('#diet-comp').val();
+			let lastName_comp = jQuery('#lastName-comp').val();
 			let mainFormValid = false;
 			let compFormValid = false;
 			if(email && name && lastName && phone && msg && diet && transport){
@@ -56,6 +57,19 @@
 			if((mainFormValid && !$("#company-container").is(":visible") ) 
 			|| (mainFormValid && $("#company-container").is(":visible") && compFormValid) ){
 				//TODO send data to api 
+				const body={
+					email,name,lastName,phone,diet,msg,transport,email_comp,name_comp,lastName_comp,phone_comp,diet_comp
+				}
+				  $.ajax({
+					url:"https://h2ir4xfwze.execute-api.us-east-1.amazonaws.com/guest",
+					type:"POST",
+					data:body,
+					contentType:"application/json; charset=utf-8",
+					dataType:"json",
+					success: function(results){
+						console.log(results);
+					}
+				  })
 			}else{
 				checkMandatoryFields();
 			}

@@ -34,7 +34,7 @@
 		});
 
 		$('#save').click( async function() {
-			let email = jQuery('#email').val();
+			let email = jQuery('#email').val().toLowerCase().trim();
 			let name = jQuery('#name').val();
 			let lastName = jQuery('#lastName').val();
 			let phone = jQuery('#phone').val();
@@ -48,10 +48,11 @@
 			let lastName_comp = jQuery('#lastName-comp').val();
 			let mainFormValid = false;
 			let compFormValid = false;
-			if(email && name && lastName && phone && msg && diet && transport){
+			let emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+			if(email && name && lastName && phone && transport && emailRegex.test(email)){
 				mainFormValid = true
 			}
-			if((email_comp && name_comp && phone_comp && diet_comp)){
+			if((email_comp && name_comp && phone_comp && lastName_comp)){
 				compFormValid = true;
 			}	
 			if((mainFormValid && !$("#company-container").is(":visible") ) 
@@ -60,24 +61,47 @@
 				const body={
 					email,name,lastName,phone,diet,msg,transport,email_comp,name_comp,lastName_comp,phone_comp,diet_comp
 				}
+				$('#save').attr('disabled', true);
+				$('#save').text("Guardando...");
 				  $.ajax({
 					url:"https://h2ir4xfwze.execute-api.us-east-1.amazonaws.com/guest",
 					type:"POST",
-					data:body,
+					data: JSON.stringify(body),
 					contentType:"application/json; charset=utf-8",
 					dataType:"json",
 					success: function(results){
-						console.log(results);
+						alert("Gracias por registrarte! Te esperamos el 15 de Abril. Podes cambiar o actualizar tu informacion con el siguiente email: "+email);
+						jQuery('#email').val('');
+						jQuery('#name').val('');
+						jQuery('#lastName').val('');
+						jQuery('#phone').val('');
+						jQuery('#msg').val('');
+						jQuery('#diet').val('');
+						jQuery('#transport').val('');
+						jQuery('#email-comp').val('');
+						jQuery('#name-comp').val('');
+						jQuery('#lastName-comp').val('');
+						jQuery('#phone-comp').val('');
+						jQuery('#diet-comp').val('');
+						$('#save').attr('disabled', false);
+						$('#save').text("Guardar");
+						jQuery('.company-show').addClass('company-hide');
+						jQuery('.company-hide').removeClass('company-show');
+						jQuery('#trans_no').prop('checked',false);
+						jQuery('#trans_yes').prop('checked',false);
+
+
 					}
 				  })
 			}else{
+				alert("Por favor complete los campos obligatorios");
 				checkMandatoryFields();
 			}
 
 		});
 
 		function checkMandatoryFields(){
-			let email = jQuery('#email').val();
+			let email = jQuery('#email').val().toLowerCase().trim()
 			let name = jQuery('#name').val();
 			let lastName = jQuery('#lastName').val();
 			let phone = jQuery('#phone').val();
@@ -87,9 +111,16 @@
 				jQuery('#email').removeClass('nicdark_border_white');
 				jQuery('#email').addClass('nicdark_border_red');
 			}else{
-				jQuery('#email-alert').addClass('hidden');
-				jQuery('#email').removeClass('nicdark_border_red');
-				jQuery('#email').addClass('nicdark_border_white');
+				let emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+				if(emailRegex.test(email)){
+					jQuery('#email-alert').addClass('hidden');
+					jQuery('#email').removeClass('nicdark_border_red');
+					jQuery('#email').addClass('nicdark_border_white');
+				}else{
+					jQuery('#email-alert').removeClass('hidden');
+					jQuery('#email').removeClass('nicdark_border_white');
+					jQuery('#email').addClass('nicdark_border_red');
+				}
 			}
 			if(!name){
 				jQuery('#name-alert').removeClass('hidden');
@@ -169,9 +200,9 @@
 
 	
 	}
-
+	let timeout;
 	$('#email').keyup(function(){
-		let email = jQuery('#email').val();
+		let email = jQuery('#email').val().toLowerCase().trim();
 		if(!email){
 			jQuery('#email-alert').removeClass('hidden');
 			jQuery('#email').removeClass('nicdark_border_white');
@@ -180,6 +211,54 @@
 			jQuery('#email-alert').addClass('hidden');
 			jQuery('#email').removeClass('nicdark_border_red');
 			jQuery('#email').addClass('nicdark_border_white');
+			//validate email
+			let emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+			if(emailRegex.test(email)){
+				if(timeout) clearTimeout(timeout);
+				timeout = setTimeout(function(){
+					$.ajax({
+						url:"https://h2ir4xfwze.execute-api.us-east-1.amazonaws.com/guest/"+email,
+						type:"GET",
+						contentType:"application/json; charset=utf-8",
+						dataType:"json",
+						success: function(results){
+							console.log(results);
+							jQuery('#email').val(results.email);
+							jQuery('#name').val(results.name);
+							jQuery('#lastName').val(results.lastName);
+							jQuery('#phone').val(results.phone);
+							jQuery('#diet').val(results.diet);
+							jQuery('#msg').val(results.msg);
+							if(results.transport=='true'){
+								jQuery('#trans_yes').prop('checked',true);
+								jQuery('#trans_no').prop('checked',false);
+							}else{
+								jQuery('#trans_no').prop('checked',true);
+								jQuery('#trans_yes').prop('checked',false);
+							}
+							if(results.email_comp){
+								jQuery('.company-hide').addClass('company-show');
+								jQuery('.company-show').removeClass('company-hide');
+								jQuery('#email-comp').val(results.email_comp);
+								jQuery('#name-comp').val(results.name_comp);
+								jQuery('#lastName-comp').val(results.lastName_comp);
+								jQuery('#phone-comp').val(results.phone_comp);
+								jQuery('#diet-comp').val(results.diet_comp);
+							}else{
+								jQuery('.company-show').addClass('company-hide');
+								jQuery('.company-hide').removeClass('company-show');
+								jQuery('#email-comp').val('');
+								jQuery('#name-comp').val('');
+								jQuery('#lastName-comp').val('');
+								jQuery('#phone-comp').val('');
+							}
+							
+						}
+					  })
+				}, 100);
+				
+			}
+
 		}
 	});
 	$('#name').keyup(function(){

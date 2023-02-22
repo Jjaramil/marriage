@@ -91,11 +91,11 @@ JQUERY UI
 .nicdark_bg_grey2{ background-color: #eeeeee; }
 .nicdark_bg_greydark{ background-color: #585858;}
 .nicdark_bg_greydark2{ background-color: #6c6975;}
-.nicdark_bg_green{ background-color: #88cfcd; }
-.nicdark_bg_blue{ background-color: #85cac8; }
-.nicdark_bg_violet{ background-color: #82c6c4; }
+.nicdark_bg_green{ background-color: #64b3b0; }
+.nicdark_bg_blue{ background-color: #52aeab; }
+.nicdark_bg_violet{ background-color: #4d9c9a; }
 .nicdark_bg_orange{ background-color: #e4d0c2; }
-.nicdark_bg_red{ background-color: #80c2c0; }
+.nicdark_bg_red{ background-color: #3e8b88; }
 .nicdark_bg_yellow{ background-color: #e4e3c2; }
 .nicdark_bg_greendark{ background-color: #afceba; }
 .nicdark_bg_bluedark{ background-color: #afcece; }
@@ -128,7 +128,7 @@ JQUERY UI
 
 
 /* 2- START NICDARKBORDER: applica l'ombra del colore selezionato*/
-.nicdark_border_white, .nicdark_border_white td, .nicdark_border_white th{ border: 1px solid #ffffff !important;}
+.nicdark_border_white, .nicdark_border_white td, .nicdark_border_white th{ border: 2px solid #ffffff !important;}
 .nicdark_border_grey, .nicdark_border_grey td, .nicdark_border_grey th{ border: 1px solid #eeeeee !important; }
 .nicdark_border_grey2, .nicdark_border_grey2 td, .nicdark_border_grey2 th{ border: 1px solid #e5e5e5; }
 .nicdark_border_greydark, .nicdark_border_greydark td, .nicdark_border_greydark th{ border: 1px solid #6c6975; }
@@ -137,7 +137,7 @@ JQUERY UI
 .nicdark_border_blue, .nicdark_border_blue td, .nicdark_border_blue th{ border: 1px solid #afcece; }
 .nicdark_border_violet, .nicdark_border_violet td, .nicdark_border_violet th{ border: 1px solid #c4afce; }
 .nicdark_border_orange, .nicdark_border_orange td, .nicdark_border_orange th{ border: 1px solid #e3bea5; }
-.nicdark_border_red, .nicdark_border_red td, .nicdark_border_red th{ border: 1px solid #ceafb5; }
+.nicdark_border_red, .nicdark_border_red td, .nicdark_border_red th{ border: 2px solid #f30232 !important}
 .nicdark_border_yellow, .nicdark_border_yellow td, .nicdark_border_yellow th{ border: 1px solid #cecdaf; }
 .nicdark_border_greendark, .nicdark_border_greendark td, .nicdark_border_greendark th{ border: 1px solid #afceba; }
 .nicdark_border_bluedark, .nicdark_border_bluedark td, .nicdark_border_bluedark th{ border: 1px solid #6dc0d5; }
@@ -222,6 +222,7 @@ transform: skew(20deg)translate(-10px);
 
 
 
+
 /* 6 - START LOGO*/
 .nicdark_logo{ float: left; position: relative; width: 10px; height: 10px; }
 .nicdark_logo img{ position: absolute; width: 222px; margin-top: -5px; border:0;}
@@ -229,7 +230,9 @@ transform: skew(20deg)translate(-10px);
 
 
 /* 7 - START NIKBTN:*/
-.nicdark_btn{ font-family: 'Halant', sans-serif; display: inline-block; text-align: center; cursor: pointer;}
+.nicdark_btn{ font-family: 'Halant', sans-serif; display: inline-block; text-align: center; cursor: pointer;    color: #ffffff;
+    background-color: #585858;
+}
 .nicdark_btn.title{ font-family: 'Cinzel', sans-serif !important; }
 .nicdark_btn.left{ float: left;}
 .nicdark_btn.right{ float: right;}
@@ -840,9 +843,9 @@ z-index: 2;
 .nicdark_bg_grey2_hover:hover{ background-color: #eeeeee !important; }
 .nicdark_bg_greydark_hover:hover{ background-color: #585858 !important;}
 .nicdark_bg_greydark2_hover:hover{ background-color: #6c6975 !important;}
-.nicdark_bg_green_hover:hover{ background-color: #88cfcd !important; }
-.nicdark_bg_blue_hover:hover{ background-color: #85cac8 !important; }
-.nicdark_bg_violet_hover:hover { background-color: #82c6c4 !important; }
+.nicdark_bg_green_hover:hover{ background-color: #5dbfbc !important; }
+.nicdark_bg_blue_hover:hover{ background-color: #48a3a0 !important; }
+.nicdark_bg_violet_hover:hover { background-color: #419491 !important; }
 .nicdark_bg_orange_hover:hover{ background-color: #e4d0c2 !important; }
 .nicdark_bg_red_hover:hover{ background-color: #80c2c0 !important; }
 .nicdark_bg_yellow_hover:hover{ background-color: #e4e3c2 !important; }

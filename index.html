@@ -642,50 +642,63 @@
                     <div class="grid grid_8 percentage nicdark_bg_violet">
                         <div class="nicdark_focus nicdark_padding40 nicdark_sizing">
                             <div class="nicdark_space10"></div> 
-                            <input class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Email" size="200">
+                            <input id="email" class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Email *" size="200">
+                            <label id="email-alert" class="alert hidden" >email inválido</label>
                             <div class="nicdark_space10"></div> 
-                            <input class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Nombre" size="200">
+                            <input id="name" class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Nombre *" size="200">
+                            <label id="name-alert" class="alert hidden" >nombre inválido</label>
                             <div class="nicdark_space10"></div> 
-                            <input class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Telefono" size="200">
+                            <input id="lastName" class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Apellido *" size="200">
+                            <label id="lastName-alert"class="alert hidden" >apellido inválido</label>
                             <div class="nicdark_space10"></div> 
-                            <input class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Dieta especial" size="200">
+                            <input id="phone" class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Telefono *" size="200">
+                            <label id="phone-alert" class="alert hidden" >teléfono inválido</label>
                             <div class="nicdark_space10"></div> 
-                            <input class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Mensaje para los novios" size="200">
+                            <input id="diet" class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Dieta especial" size="200">
+                            <div class="nicdark_space10"></div> 
+                            <textarea  id="msg" class="nicdark_height100 nicdark_bg_transparent nicdark_border_white white big title" type="text" placeholder="Mensaje para los novios" size="200"></textarea>
                             <div class="nicdark_space10"></div>
-                            <p class="white">Necesitas transporte al salón? </p>
+                            <h2 class="white">Necesitas transporte al salón? </h2>
                             <div class="nicdark_space10"></div>                            
                            
                                 <div class="rating-container">
                                     
                                     <div class="rating">
                                     <form class="rating-form-2">                                    
-                                        <label for="happy2">
-                                    <input type="radio" name="rating" class="happy" id="happy2" value="happy2" />
+                                        <label for="trans_yes">
+                                    <input type="radio" name="transport" class="happy" id="trans_yes" value="true" />
                                     <svg viewBox="0 0 24 24"><path d="M5,9V21H1V9H5M9,21A2,2 0 0,1 7,19V9C7,8.45 7.22,7.95 7.59,7.59L14.17,1L15.23,2.06C15.5,2.33 15.67,2.7 15.67,3.11L15.64,3.43L14.69,8H21C22.11,8 23,8.9 23,10V12C23,12.26 22.95,12.5 22.86,12.73L19.84,19.78C19.54,20.5 18.83,21 18,21H9M9,19H18.03L21,12V10H12.21L13.34,4.68L9,9.03V19Z" /></svg>
                                     </label>
 
-                                        <label for="sad2">
-                                    <input type="radio" name="rating" class="sad" id="sad2" value="sad2" />
+                                        <label for="trans_no">
+                                    <input type="radio" name="transport" class="sad" id="trans_no" value="false" />
                                     <svg viewBox="0 0 24 24"><path d="M19,15V3H23V15H19M15,3A2,2 0 0,1 17,5V15C17,15.55 16.78,16.05 16.41,16.41L9.83,23L8.77,21.94C8.5,21.67 8.33,21.3 8.33,20.88L8.36,20.57L9.31,16H3C1.89,16 1,15.1 1,14V12C1,11.74 1.05,11.5 1.14,11.27L4.16,4.22C4.46,3.5 5.17,3 6,3H15M15,5H5.97L3,12V14H11.78L10.65,19.32L15,14.97V5Z" /></svg>
                                         </label>
                                     </form>
                                     </div>
                                 </div>
+                                <label id="transport-alert"class="alert hidden" >Seleccione una opción</label>
                                       
                                 <div class="nicdark_space10"></div> 
                                 <button type="button" id="company" class="nicdark_outline nicdark_press  nicdark_btn fullwidth nicdark_border_white title medium white">Agregar acompañante</button>
                                 <div class="nicdark_space10"></div>   
-                        <div class="company-hide"> 
-                                <input class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Email" size="200">
+                            <div id="company-container" class="company-hide"> 
+                                <input id="email-comp" class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Email *" size="200">
+                                <label id="email-comp-alert"class="alert hidden" >email inválido</label>
                                 <div class="nicdark_space10"></div> 
-                                <input class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Nombre" size="200">
+                                <input id="name-comp"  class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Nombre *" size="200">
+                                <label id="name-comp-alert"class="alert hidden" >nombre inválido</label>
                                 <div class="nicdark_space10"></div> 
-                                <input class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Telefono" size="200">
+                                <input id="lastName-comp"  class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Apellido *" size="200">
+                                <label id="lastName-comp-alert"class="alert hidden" >apellido inválido</label>
                                 <div class="nicdark_space10"></div> 
-                                <input class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Dieta especial" size="200">
+                                <input  id="phone-comp" class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Telefono *" size="200">
+                                <label id="phone-comp-alert"class="alert hidden" >teléfono inválido</label>
+                                <div class="nicdark_space10"></div> 
+                                <input  id="diet-comp" class="nicdark_height46 nicdark_bg_transparent nicdark_border_white white medium title" type="text" placeholder="Dieta especial" size="200">
                             </div>  
                                 <div class="nicdark_space10"></div> 
-                                <a href="submit-message.html" class="nicdark_outline nicdark_press nicdark_mpopup_ajax nicdark_btn fullwidth nicdark_border_white title medium white">SEND</a>
+                                <button  type="button" id="save" class="nicdark_outline nicdark_press  nicdark_btn fullwidth nicdark_border_white title medium white">Guardar</button>
                                 <div class="nicdark_space10"></div> 
                         
                             </div>

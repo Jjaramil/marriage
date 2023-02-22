@@ -22,11 +22,237 @@
 		});
 
 		$( '.nicdark_simulate_click' ).trigger( "click" );
-
+		
 		$('#company').click( function() {
-			jQuery('.company-hide').addClass('company-show');
-			jQuery('.company-show').removeClass('company-hide');
+			if(jQuery('.company-hide').length >0){
+				jQuery('.company-hide').addClass('company-show');
+				jQuery('.company-show').removeClass('company-hide');
+			}else{
+				jQuery('.company-show').addClass('company-hide');
+				jQuery('.company-hide').removeClass('company-show');
+			}
 		});
+
+		$('#save').click( function() {
+			let email = jQuery('#email').val();
+			let name = jQuery('#name').val();
+			let lastName = jQuery('#lastName').val();
+			let phone = jQuery('#phone').val();
+			let msg = jQuery('#msg').val();
+			let diet = jQuery('#diet').val();
+			let transport = jQuery('input:radio[name=transport]:checked').val();
+			let email_comp = jQuery('#email-comp').val();
+			let name_comp = jQuery('#name-comp').val();
+			let phone_comp = jQuery('#phone-comp').val();
+			let diet_comp = jQuery('#diet-comp').val();
+			let mainFormValid = false;
+			let compFormValid = false;
+			if(email && name && lastName && phone && msg && diet && transport){
+				mainFormValid = true
+			}
+			if((email_comp && name_comp && phone_comp && diet_comp)){
+				compFormValid = true;
+			}	
+			if((mainFormValid && !$("#company-container").is(":visible") ) 
+			|| (mainFormValid && $("#company-container").is(":visible") && compFormValid) ){
+				//TODO send data to api 
+			}else{
+				checkMandatoryFields();
+			}
+
+		});
+
+		function checkMandatoryFields(){
+			let email = jQuery('#email').val();
+			let name = jQuery('#name').val();
+			let lastName = jQuery('#lastName').val();
+			let phone = jQuery('#phone').val();
+			let transport = jQuery('input:radio[name=transport]:checked').val();
+			if(!email){
+				jQuery('#email-alert').removeClass('hidden');
+				jQuery('#email').removeClass('nicdark_border_white');
+				jQuery('#email').addClass('nicdark_border_red');
+			}else{
+				jQuery('#email-alert').addClass('hidden');
+				jQuery('#email').removeClass('nicdark_border_red');
+				jQuery('#email').addClass('nicdark_border_white');
+			}
+			if(!name){
+				jQuery('#name-alert').removeClass('hidden');
+				jQuery('#name').removeClass('nicdark_border_white');
+				jQuery('#name').addClass('nicdark_border_red');
+			}else{
+				jQuery('#name-alert').addClass('hidden');
+				jQuery('#name').removeClass('nicdark_border_red');
+				jQuery('#name').addClass('nicdark_border_white');
+			}
+			if(!lastName){
+				jQuery('#lastName-alert').removeClass('hidden');
+				jQuery('#lastName').removeClass('nicdark_border_white');
+				jQuery('#lastName').addClass('nicdark_border_red');
+			}else{
+				jQuery('#lastName-alert').addClass('hidden');
+				jQuery('#lastName').removeClass('nicdark_border_red');
+				jQuery('#lastName').addClass('nicdark_border_white');
+			}
+			if(!phone){
+				jQuery('#phone-alert').removeClass('hidden');
+				jQuery('#phone').removeClass('nicdark_border_white');
+				jQuery('#phone').addClass('nicdark_border_red');
+			}else{
+				jQuery('#phone-alert').addClass('hidden');
+				jQuery('#phone').removeClass('nicdark_border_red');
+				jQuery('#phone').addClass('nicdark_border_white');
+			}
+			if(!transport){
+				jQuery('#transport-alert').removeClass('hidden');
+			}else{
+				jQuery('#transport-alert').addClass('hidden');
+			}
+
+			if($("#company-container").is(":visible")){
+				let email_comp = jQuery('#email-comp').val();
+				let name_comp = jQuery('#name-comp').val();
+				let lastName_comp = jQuery('#lastName-comp').val();
+				let phone_comp = jQuery('#phone-comp').val();
+				if(!email_comp){
+					jQuery('#email-comp-alert').removeClass('hidden');
+					jQuery('#email-comp').removeClass('nicdark_border_white');
+					jQuery('#email-comp').addClass('nicdark_border_red');
+				}else{
+					jQuery('#email-comp-alert').addClass('hidden');
+					jQuery('#email-comp').removeClass('nicdark_border_red');
+					jQuery('#email-comp').addClass('nicdark_border_white');
+				}
+				if(!name_comp){
+					jQuery('#name-comp-alert').removeClass('hidden');
+					jQuery('#name-comp').removeClass('nicdark_border_white');
+					jQuery('#name-comp').addClass('nicdark_border_red');
+				}else{
+					jQuery('#name-comp-alert').addClass('hidden');
+					jQuery('#name-comp').removeClass('nicdark_border_red');
+					jQuery('#name-comp').addClass('nicdark_border_white');
+				}
+				if(!lastName_comp){
+					jQuery('#lastName-comp-alert').removeClass('hidden');
+					jQuery('#lastName-comp').removeClass('nicdark_border_white');
+					jQuery('#lastName-comp').addClass('nicdark_border_red');
+				}else{
+					jQuery('#lastName-comp-alert').addClass('hidden');
+					jQuery('#lastName-comp').removeClass('nicdark_border_red');
+					jQuery('#lastName-comp').addClass('nicdark_border_white');
+				}
+				if(!phone_comp){
+					jQuery('#phone-comp-alert').removeClass('hidden');
+					jQuery('#phone-comp').removeClass('nicdark_border_white');
+					jQuery('#phone-comp').addClass('nicdark_border_red');
+				}else{
+					jQuery('#phone-comp-alert').addClass('hidden');
+					jQuery('#phone-comp').removeClass('nicdark_border_red');
+					jQuery('#phone-comp').addClass('nicdark_border_white');
+				}
+		}
+
+	
+	}
+
+	$('#email').keyup(function(){
+		let email = jQuery('#email').val();
+		if(!email){
+			jQuery('#email-alert').removeClass('hidden');
+			jQuery('#email').removeClass('nicdark_border_white');
+			jQuery('#email').addClass('nicdark_border_red');
+		}else{
+			jQuery('#email-alert').addClass('hidden');
+			jQuery('#email').removeClass('nicdark_border_red');
+			jQuery('#email').addClass('nicdark_border_white');
+		}
+	});
+	$('#name').keyup(function(){
+		let name = jQuery('#name').val();
+		if(!name){
+			jQuery('#name-alert').removeClass('hidden');
+			jQuery('#name').removeClass('nicdark_border_white');
+			jQuery('#name').addClass('nicdark_border_red');
+		}else{
+			jQuery('#name-alert').addClass('hidden');
+			jQuery('#name').removeClass('nicdark_border_red');
+			jQuery('#name').addClass('nicdark_border_white');
+		}
+	});
+	$('#lastName').keyup(function(){
+		let lastName = jQuery('#lastName').val();
+		if(!lastName){
+			jQuery('#lastName-alert').removeClass('hidden');
+			jQuery('#lastName').removeClass('nicdark_border_white');
+			jQuery('#lastName').addClass('nicdark_border_red');
+		}else{
+			jQuery('#lastName-alert').addClass('hidden');
+			jQuery('#lastName').removeClass('nicdark_border_red');
+			jQuery('#lastName').addClass('nicdark_border_white');
+		}
+	});
+	$('#phone').keyup(function(){
+		let phone = jQuery('#phone').val();
+		if(!phone){
+			jQuery('#phone-alert').removeClass('hidden');
+			jQuery('#phone').removeClass('nicdark_border_white');
+			jQuery('#phone').addClass('nicdark_border_red');
+		}else{
+			jQuery('#phone-alert').addClass('hidden');
+			jQuery('#phone').removeClass('nicdark_border_red');
+			jQuery('#phone').addClass('nicdark_border_white');
+		}
+	});
+	$('#email-comp').keyup(function(){
+		let email_comp = jQuery('#email-comp').val();
+		if(!email_comp){
+			jQuery('#email-comp-alert').removeClass('hidden');
+			jQuery('#email-comp').removeClass('nicdark_border_white');
+			jQuery('#email-comp').addClass('nicdark_border_red');
+		}else{
+			jQuery('#email-comp-alert').addClass('hidden');
+			jQuery('#email-comp').removeClass('nicdark_border_red');
+			jQuery('#email-comp').addClass('nicdark_border_white');
+		}
+	});
+	$('#name-comp').keyup(function(){
+		let name_comp = jQuery('#name-comp').val();
+		if(!name_comp){
+			jQuery('#name-comp-alert').removeClass('hidden');
+			jQuery('#name-comp').removeClass('nicdark_border_white');
+			jQuery('#name-comp').addClass('nicdark_border_red');
+		}else{
+			jQuery('#name-comp-alert').addClass('hidden');
+			jQuery('#name-comp').removeClass('nicdark_border_red');
+			jQuery('#name-comp').addClass('nicdark_border_white');
+		}
+	});
+	$('#lastName-comp').keyup(function(){
+		let lastName_comp = jQuery('#lastName-comp').val();
+		if(!lastName_comp){
+			jQuery('#lastName-comp-alert').removeClass('hidden');
+			jQuery('#lastName-comp').removeClass('nicdark_border_white');
+			jQuery('#lastName-comp').addClass('nicdark_border_red');
+		}else{
+			jQuery('#lastName-comp-alert').addClass('hidden');
+			jQuery('#lastName-comp').removeClass('nicdark_border_red');
+			jQuery('#lastName-comp').addClass('nicdark_border_white');
+		}
+	});
+	$('#phone-comp').keyup(function(){
+		let phone_comp = jQuery('#phone-comp').val();
+		if(!phone_comp){
+			jQuery('#phone-comp-alert').removeClass('hidden');
+			jQuery('#phone-comp').removeClass('nicdark_border_white');
+			jQuery('#phone-comp').addClass('nicdark_border_red');
+		}else{
+			jQuery('#phone-comp-alert').addClass('hidden');
+			jQuery('#phone-comp').removeClass('nicdark_border_red');
+			jQuery('#phone-comp').addClass('nicdark_border_white');
+		}
+	});
+	
 	
 	});
 	///////////

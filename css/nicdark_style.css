@@ -167,6 +167,7 @@ pre p{ font-family: monospace; font-size: 13px; line-height: 22px; }
 
 /* 8 - START NICDARKFORMELEMENTS*/
 input[type="text"]{ float: left; border: 0; outline: 0; }
+label{ float: left;  }
 input[type="number"]{ color: #c9c9c9; }
 textarea{ float: left; border: 0; outline: 0; }
 select{ float: left; border: 0; outline: 0; width: 100%; -webkit-appearance: none; cursor: pointer; border-radius: 0px; }
@@ -180,11 +181,16 @@ select.small { font-size: 15px; padding: 10px 20px; box-sizing:border-box; }
 select.medium { font-size: 17px; padding: 10px 20px; box-sizing:border-box; }
 select.big { font-size: 17px; padding: 15px 20px; box-sizing:border-box; }
 /*placeholder*/
-::-webkit-input-placeholder { color:    #fff; }
+::-webkit-input-placeholder { color:    #fff; font-weight:700; }
 /*END NICDARKFORMELEMENTS*/
 
+.hidden{
+    display: none;
+}
 
-
+.alert{
+    color: red;
+}
 /*********************************************CUSTOM FOR FASHION*************************************************************/
 
 /* 9 - START CLASS FOR PARALLAX SECTION*/

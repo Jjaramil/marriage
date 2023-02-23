@@ -581,18 +581,6 @@
                 
                 <div class="grid grid_6 nicdark_bg_white percentage nicdark_bg_white nicdark_activity right">
                     <div class="nicdark_focus nicdark_padding40 nicdark_sizing">
-                        <h1 class="grey">CONFIRMACIÓN DE ASISTENCIA</h1>
-                        <div class="nicdark_space20"></div>
-                        <h3 class="grey">DISPONIBLE DESDE EL 22 DE FEBRERO</h3>
-                        <div class="nicdark_space20"></div>
-                        <div class="nicdark_divider left small"><span class="nicdark_bg_grey2 "></span></div>
-                        <div class="nicdark_space20"></div>
-                        <h2 class="grey">Queremos que todo salga de la mejor manera. Por eso necesitamos que nos confirmes tu asistencia lo antes posible.</h2>
-                        <div class="nicdark_space20"></div>
-                        <h2 class="grey">Si tenés alguna duda, por favor contáctanos para poderte ayudar. José (+5491138683994) y María Luz (+5493512088989).</h2>
-                        <div class="nicdark_space20"></div>
-                    </div>
-                    <div class="nicdark_focus nicdark_padding40 nicdark_sizing">
                         <h1 class="grey" style="font-family:sisterhood;">El Mejor Regalo</h1>
                         <div class="nicdark_space20"></div>
                         <div class="nicdark_divider left small"><span class="nicdark_bg_grey2 "></span></div>
@@ -605,6 +593,19 @@
                         <h2 class="grey">Alias: jaramillo.jose.b</h2>
                         <div class="nicdark_space100"></div>
                     </div>
+                    <div class="nicdark_focus nicdark_padding40 nicdark_sizing">
+                        <h1 class="grey"  style="font-family:sisterhood;">Confirmación de Asistencia</h1>
+                        <div class="nicdark_space20"></div>
+                        <h3 class="grey">DISPONIBLE DESDE EL 22 DE FEBRERO</h3>
+                        <div class="nicdark_space20"></div>
+                        <div class="nicdark_divider left small"><span class="nicdark_bg_grey2 "></span></div>
+                        <div class="nicdark_space20"></div>
+                        <h2 class="grey">Queremos que todo salga de la mejor manera. Por eso necesitamos que nos confirmes tu asistencia lo antes posible.</h2>
+                        <div class="nicdark_space20"></div>
+                        <h2 class="grey">Si tenés alguna duda, por favor contáctanos para poderte ayudar. José (+5491138683994) y María Luz (+5493512088989).</h2>
+                        <div class="nicdark_space20"></div>
+                    </div>
+                   
                 </div>
             
         </section>
@@ -821,13 +822,13 @@
           render: function(data) {
             $(this.el).html("<div class=\""+ display_days 
             +" grid grid_3 percentage countdown nomargin nicdark_bg_red \"><div class=\"nicdark_space40\"></div><h1 class=\"white big\">"+ this.leadingZeros(data.days, 3) 
-                +"</h1><div class=\"nicdark_space10\"></div><h2 class=\"white\" style=\"font-family:sisterhood; font-size:12px\">DÍAS</h2><div class=\"nicdark_space40\"></div> </div> <div class=\""+ 
+                +"</h1><div class=\"nicdark_space10\"></div><h2 class=\"white\" style=\"font-family:sisterhood; font-size:30px;\">días</h2><div class=\"nicdark_space40\"></div> </div> <div class=\""+ 
                 display_hours +" grid grid_3 percentage countdown nomargin nicdark_bg_violet \"><div class=\"nicdark_space40\"></div> <h1 class=\"white big\">"+ this.leadingZeros(data.hours, 2) 
-                +"</h1><div class=\"nicdark_space10\"></div><h2 class=\"white\" style=\"font-family:sisterhood; font-size:12px\" >HRS</h2> <div class=\"nicdark_space40\"></div></div><div class=\""+ 
+                +"</h1><div class=\"nicdark_space10\"></div><h2 class=\"white\" style=\"font-family:sisterhood; font-size:30px;\" >hrs</h2> <div class=\"nicdark_space40\"></div></div><div class=\""+ 
                 display_minutes +" grid grid_3 percentage countdown nomargin nicdark_bg_blue \"> <div class=\"nicdark_space40\"></div><h1 class=\"white big\">"+ this.leadingZeros(data.min, 2) 
-                    +"</h1><div class=\"nicdark_space10\"> </div> <h2 class=\"white\" style=\"font-family:sisterhood; font-size:12px\" >MIN</h2><div class=\"nicdark_space40\"></div></div><div class=\""+
+                    +"</h1><div class=\"nicdark_space10\"> </div> <h2 class=\"white\" style=\"font-family:sisterhood; font-size:30px;\" >min</h2><div class=\"nicdark_space40\"></div></div><div class=\""+
                      display_seconds +" grid grid_3 percentage countdown nomargin nicdark_bg_green \"><div class=\"nicdark_space40\"> </div><h1 class=\"white big\">"+ this.leadingZeros(data.sec, 2)
-                         +"</h1> <div class=\"nicdark_space10\"></div> <h2 class=\"white\" style=\"font-family:sisterhood; font-size:12px; font-size:10px\" >SEG</h2> <div class=\"nicdark_space40\"></div></div>");
+                         +"</h1> <div class=\"nicdark_space10\"></div> <h2 class=\"white\" style=\"font-family:sisterhood; font-size:30px;\" >seg</h2> <div class=\"nicdark_space40\"></div></div>");
           }
         });
         //END COUNTDOWN GRID SECTION

@@ -127,6 +127,9 @@
 /*iphone land*/
 /*iphone potr*/
 @media only screen and (min-width: 320px) and (max-width: 767px){
+	#section_nicdark_rsvp .nicdark_container{
+		width: 100% !important;
+	}
 	.waiting{
 		display:none;
 	}

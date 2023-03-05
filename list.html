@@ -66,10 +66,10 @@
   
 
     function compare( a, b ) {
-  if ( a.lastName < b.lastName ){
+  if ( a.lastName.toUpperCase() < b.lastName.toUpperCase() ){
     return -1;
   }
-  if ( a.lastName > b.lastName ){
+  if ( a.lastName.toUpperCase() > b.lastName.toUpperCase() ){
     return 1;
   }
   return 0;

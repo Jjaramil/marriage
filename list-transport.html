@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    #myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+#guests {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#guests td, #guests th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#guests tr:nth-child(even){background-color: #f2f2f2;}
+
+#guests tr:hover {background-color: #ddd;}
+
+#guests th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+<div>
+    <h1 id="guest-count"></h1>
+</div>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+<table id="guests">
+    <tbody>
+    <tr>
+        <th>Nombre completo</th>
+        <th>Telefono</th>
+        <th>Nombre completo</th>
+        <th>Telefono</th>
+      </tr>
+      
+</tbody>
+</table>
+</body>
+
+<script src="js/main/jquery.min.js"></script> <!--Jquery-->
+<script src="js/main/jquery-ui.min.js"></script> <!--Jquery UI-->
+<script src="js/main/excanvas.js"></script> <!--canvas need for ie-->
+
+<script>
+  
+
+    function compare( a, b ) {
+  if ( a.lastName.toUpperCase() < b.lastName.toUpperCase() ){
+    return -1;
+  }
+  if ( a.lastName.toUpperCase() > b.lastName.toUpperCase() ){
+    return 1;
+  }
+  return 0;
+}
+
+    function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("guests");
+  tr = table.getElementsByTagName("tr");
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 1; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td");
+    if (td) {
+      txtValue = [].slice.call(td).map(d => d.innerText).join();
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+
+
+$.ajax({
+						url:"https://iiwd9eng1k.execute-api.us-east-1.amazonaws.com/guest",
+						type:"GET",
+						contentType:"application/json; charset=utf-8",
+						dataType:"json",
+						success: function(results){
+                            results.sort( compare );
+							addGuestsToTable(results);
+                            
+						}
+					  })
+
+    function addGuestsToTable(guests) {
+        var guestCount = 0;
+        for (i = 0; i < guests.length; i++) {
+            if(guests[i].transport  === "true"){
+            if(guests[i].name_comp) guestCount = guestCount + 2;
+            else guestCount = guestCount +1;
+            var html = 
+                                `<tr><td>${guests[i].lastName} ${guests[i].name}</td>
+                                <td>${guests[i].phone}</td>
+                                <td>${guests[i].lastName_comp} ${guests[i].name_comp}</td>
+                                <td>${guests[i].phone_comp}</td>
+                                </tr>`;
+            $('#guests > tbody:last-child').append(html);
+
+            }
+        }
+        $("#guest-count").append(guestCount + " Invitados");
+    }
+    
+</script>
